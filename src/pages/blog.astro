@@ -1,17 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+const pageTitle = "Blog";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={pageTitle}>
   <main>
-    <h1>My Astro Site</h1>
-    <h1 class="text-gradient">Blog</h1>
+    <h1>Dave's Dev Corner</h1>
+    <h1 class="text-gradient">{pageTitle}</h1>
     <h2>... and my new Astro site!</h2>
 
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
 
     <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    <ul>
+      <li><a href="/posts/post-1/">Post 1</a></li>
+      <li><a href="/posts/post-2/">Post 2</a></li>
+      <li><a href="/posts/post-3/">Post 3</a></li>
+    </ul>
   </main>
 </Layout>
 

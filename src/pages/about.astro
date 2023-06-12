@@ -1,61 +1,88 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "David",
+  country: "England ",
+  occupation: "Frontend Developer",
+  hobbies: ["Streaming", "Drums", "Programming"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Nextjs", "Astro", "Tailwind"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={pageTitle}>
   <main>
-    <h1>Davesakraken</h1>
-    <h1 class="text-gradient">About Me</h1>
-    <h2>... and my new Astro site!</h2>
+    <h1>Dave's Dev Corner</h1>
+    <h1 class="text-gradient">{pageTitle}</h1>
+    <h2>...Here are a few facts about me!</h2>
+    <ul>
+      <li>My Name is {identity.firstName}</li>
+      <li>I live in {identity.country} and I'm currently learning {identity.occupation}</li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+          </li>
+        )
+      }
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
 
-    <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
-
-    <p>This site will update as I complete more of the tutorial, so keep checking back and see how my journey is going!</p>
+    {happy && <p>I'm happy to be learning Astro!</p>}
+    {finished && <p>I finished this tutorial!</p>}
   </main>
-</Layout>
 
-<style>
-  main {
-    margin: auto;
-    padding: 1.5rem;
-    max-width: 60ch;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
-  }
-  h1 {
-    font-size: 3rem;
-    font-weight: 800;
-    margin: 0;
-  }
-</style>
+  <style>
+    main {
+      margin: auto;
+      padding: 1.5rem;
+      max-width: 60ch;
+    }
+    .text-gradient {
+      background-image: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 400%;
+      background-position: 0%;
+    }
+    .instructions {
+      line-height: 1.6;
+      margin: 1rem 0;
+      border: 1px solid rgba(var(--accent), 25%);
+      background-color: white;
+      padding: 1rem;
+      border-radius: 0.4rem;
+    }
+    .instructions code {
+      font-size: 0.875em;
+      font-weight: bold;
+      background: rgba(var(--accent), 12%);
+      color: rgb(var(--accent));
+      border-radius: 4px;
+      padding: 0.3em 0.45em;
+    }
+    .instructions strong {
+      color: rgb(var(--accent));
+    }
+    .link-card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+      gap: 1rem;
+      padding: 0;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 0;
+    }
+  </style>
+</Layout>

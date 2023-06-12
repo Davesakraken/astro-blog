@@ -1,15 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+
+const pageTitle = "Dave's Corner";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={pageTitle}>
   <main>
-    <h1>Welcome to <span class="text-gradient">My Astro Site</span></h1>
-    <p class="instructions">
-      To get started, open the directory <code>src/pages</code> in your project.<br />
-      <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-    </p>
+    <h1>Welcome to <span class="text-gradient">{pageTitle}</span></h1>
     <ul role="list" class="link-card-grid">
       <Card href="https://docs.astro.build/" title="Documentation" body="Learn how Astro works and explore the official API docs." />
       <Card
@@ -18,7 +16,7 @@ import Card from "../components/Card.astro";
         body="Supercharge your project with new frameworks and libraries."
       />
       <Card href="https://astro.build/themes/" title="Themes" body="Explore a galaxy of community-built starter themes." />
-      <Card href="https://astro.build/chat/" title="Community" body="Come say hi to our amazing Discord community. ❤️" />
+      <Card href="https://davidbell.xyz" title="My Portfolio" body="Come Checkout my portfolio page! ❤️" />
     </ul>
   </main>
 </Layout>
@@ -47,7 +45,7 @@ import Card from "../components/Card.astro";
   .instructions code {
     font-size: 0.875em;
     font-weight: bold;
-    background: rgba(var(--accent), 12%);
+    background: rgba(var(-accent), 12%);
     color: rgb(var(--accent));
     border-radius: 4px;
     padding: 0.3em 0.45em;
@@ -64,6 +62,7 @@ import Card from "../components/Card.astro";
   h1 {
     font-size: 3rem;
     font-weight: 800;
-    margin: 0;
+    margin: auto;
+    text-align: center;
   }
 </style>
